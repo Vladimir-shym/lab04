@@ -1,0 +1,53 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+int main() {
+    long long n;
+    cin >> n;
+ 
+    
+    long long S = n * (n + 1) / 2;
+ 
+    
+    if (S % 2 != 0) {
+        cout << "NO" << endl;
+        return 0;
+    }
+ 
+    cout << "YES" << endl;
+ 
+    
+    long long target = S / 2;
+    long long sum = 0;
+ 
+    
+    int l = 0, k = 0; 
+    long long petya[100000]; 
+    long long masha[100000]; 
+ 
+    
+    for (long long i = n; i >= 1; i--) {
+        if (sum + i <= target) {
+            petya[l++] = i;
+            sum += i;
+        } else {
+            masha[k++] = i;
+        }
+    }
+ 
+    
+    cout << l << endl;
+    for (int i = 0; i < l; i++) {
+        cout << petya[i] << " ";
+    }
+    cout << endl;
+ 
+    cout << k << endl;
+    for (int i = 0; i < k; i++) {
+        cout << masha[i] << " ";
+    }
+    cout << endl;
+ 
+    return 0;
+}
